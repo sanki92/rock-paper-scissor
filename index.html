@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="https://img.icons8.com/emoji/48/000000/rock-emoji.png" type="image/x-icon">
+    <title>Rock Paper Scissor</title>
+</head>
+<body>
+    <div class="social_media">
+        <a target="_blank" href="https://www.instagram.com/codingsmurfs/">
+            <img src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/24/000000/external-instagram-photo-and-video-sharing-social-networking-service-owned-by-facebook-logo-filled-tal-revivo.png"/>
+        </a>
+    </div>
+    <h1>Rock, Paper & Scissor</h1>
+    <div class="screen">
+
+        <div id="user">00</div><span>:</span>
+        <div id="comp">00</div>
+
+    </div>
+    <h2 id="comment">
+        <ul>
+            <li><span  id="user_comment">--</span>(you)</li>
+            <li><span id="comp_comment">--</span>(comp)</li>
+        </ul>
+        <div id="status">Make your move!</div>
+        <!-- <div>Rock</div>
+            (you)
+        <div >Paper</div>
+        (comp),
+        <div id="status">You Lose!</div> -->
+
+    </h2>
+    <!-- <h2 id="comment">Rock <span>(you)</span> beats Paper <span>(comp)</span>, You Lose!</h2> -->
+
+    <div class="loading">
+        <span style="--i:1"></span>
+        <span style="--i:2"></span>
+        <span style="--i:3"></span>
+        <span style="--i:4"></span>
+    </div>
+    
+    <div class="deck">
+        <span id="Rock"><img src="./img/rock.png" alt="..." draggable="false"></span>
+        <span id="Paper"><img src="./img/paper.png" alt="..." draggable="false"></span>
+        <span id="Scissor"><img src="./img/scissor.png" alt="..." draggable="false"></span>
+    </div>
+
+    <footer>Designed & developed by Sankalp</footer>
+</body>
+
+
+<script>
+    // deck (rock, paper, scissor)
+    const deck = document.querySelectorAll('.deck span');
+
+    // comment
+    let user_comment = document.getElementById("user_comment");
+    let comp_comment = document.getElementById("comp_comment");
+    let status_comment = document.getElementById("status");
+
+    // screen
+    const user = document.getElementById("user");
+    const comp = document.getElementById("comp");
+
+    // choice
+    let comp_choice;
+    let user_choice;
+
+    // default score
+    let comp_score=0,user_score=0;
+    let status;
+
+    // score updation
+    const update=()=>{
+        user_score>=0&&user_score<10 ? user.innerText="0"+user_score : user.innerText=user_score;
+        comp_score>=0&&comp_score<10 ? comp.innerText="0"+comp_score : comp.innerText=comp_score;
+        
+    }
+    const commentupdate=(ch_user,ch_comp,status)=>{
+        user_comment.innerText=ch_user;
+        comp_comment.innerText=ch_comp;
+        status_comment.innerText=status;
+    }
+
+
+    deck.forEach(item=>{
+        item.addEventListener('click',function(){
+            // user's choice
+            user_choice = item;
+            user_comment.innerText=user_choice.id;
+            comp_comment.innerText="--";
+            // loading start 
+            document.querySelector(".loading").style.visibility="visible"
+            setTimeout(() => {
+            // loading over after 3s
+            document.querySelector(".loading").style.visibility="hidden"
+
+            // comp's choice
+                comp_choice = deck[Math.floor(Math.random() * deck.length)];
+                // console.log("computer",comp_choice.id)
+                // console.log("user",user_choice.id)
+
+
+                if(user_choice.id === comp_choice.id){
+                    status="Draw!";
+                    commentupdate(user_choice.id,comp_choice.id,status);
+                }
+
+                // CONDITION 1
+                if(user_choice.id==="Rock"&&comp_choice.id==="Paper"){
+                    // user lose
+                    status="You Lose!";
+                    commentupdate(user_choice.id,comp_choice.id,status);
+                    comp_score++;
+                }
+                else if(user_choice.id==="Paper"&&comp_choice.id==="Rock"){
+                    //user win
+                    status="You Win!";
+                    commentupdate(user_choice.id,comp_choice.id,status);
+                    user_score++;
+                }
+                // CONDITION 2
+                else if(user_choice.id==="Paper"&&comp_choice.id==="Scissor"){
+                    //user lose
+                    status="You Lose!";
+                    commentupdate(user_choice.id,comp_choice.id,status);
+                    comp_score++;
+                }
+                else if(user_choice.id==="Scissor"&&comp_choice.id==="Paper"){
+                    //user win
+                    status="You Win!";
+                    commentupdate(user_choice.id,comp_choice.id,status);
+                    user_score++;
+                }
+                // CONDITION 3
+                else if(user_choice.id==="Scissor"&&comp_choice.id==="Rock"){
+                    //user lose
+                    status="You Lose!";
+                    commentupdate(user_choice.id,comp_choice.id,status);
+                    comp_score++;
+                }
+                else if(user_choice.id==="Rock"&&comp_choice.id==="Scissor"){
+                    //user win
+                    status="You Win!";
+                    commentupdate(user_choice.id,comp_choice.id,status);
+                    user_score++;
+                }
+            
+
+
+
+                update();
+            }, 3000);
+
+
+
+        })
+    })
+ 
+</script>
+</html>

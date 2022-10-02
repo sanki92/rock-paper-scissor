@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dosis';
+}
+:root{
+    --light-white:#dff0ffb7;
+}
+body{
+    background: rgb(37, 43, 50);
+    color: var(--light-white);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3rem;
+}
+h1{
+    margin-bottom: 3rem;
+}
+.screen{
+    position: relative;
+    width: 22rem;
+    height: 5rem;
+    background: #3b4962;
+    outline: 2px dashed var(--light-white);
+    outline-offset: -8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+.screen div{
+    width: 3.5rem;
+    height: 2rem;
+    font-size: 1.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.screen span{font-size: 1.5rem;}
+.screen div::after{
+    content: "";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 1rem;
+    padding: 9px 2px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    background: #54688a;
+}
+.screen #user::after{content: "User"; left: -2.5rem;}
+.screen #comp::after{content: "Comp";right: -2.5rem;}
+
+
+#comment{
+    width: 18rem;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+#comment ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    font-size: .9rem;
+}
+#comment ul li{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#comment ul li span{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+#comment #status{
+    font-size: 1.7rem;
+    margin: 30px;
+    text-align: center;
+}
+
+/* #comment div{
+    font-size: 1.8rem;
+} */
+
+.loading{
+    width: 3.8rem;
+    height: 1rem;
+    visibility: hidden;
+}
+.loading span{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: transparent;
+    transform: translate(calc(var(--i)*.5rem));
+    animation: loading 0.7s ease calc(var(--i)*.1s) infinite alternate-reverse; 
+}
+@keyframes loading {
+    0%{}
+    100%{background: var(--light-white);transform: scale(1.1)translate(calc(var(--i)*.8rem));}
+}
+
+.deck{
+    width: 22rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.deck span{
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--light-white);
+    cursor: pointer;
+}
+.deck span:hover{
+    background: #00000053;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #191d24;
+    padding: 5px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.social_media{
+    width: 70px;
+    height: 70px;
+    background: #191d24c1;
+    clip-path: circle(90% at 100% 0%);
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.social_media img{
+    width: 2.5rem;
+    margin: 5px 0px 0px 25px;
+    cursor: pointer;
+}
+
+
+@media (max-width:445px) {
+    body{
+       height: 100vh;
+       width: 100%; 
+       row-gap: 2rem;
+    }
+    .screen{
+        width: 90%;
+        height: 5rem;
+    }
+    .screen div{
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .screen span{font-size: 1rem;}
+    .screen div::after{
+        width: 4rem;
+        height: 1rem;
+        padding: 3px 2px;
+        font-size:.9rem;
+    }
+    .screen #user::after{content: "User"; left: -1rem;}
+    .screen #comp::after{content: "Comp";right: -1rem;}
+
+    #comment{
+        width: 100%;
+    }
+
+    #comment ul li span{
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    #comment #status{
+        font-size: 1.4rem;
+        margin: 30px;
+        text-align: center;
+    }
+
+    .loading{
+        display: flex;
+        align-items: center;
+        width: 3.5rem;
+    }
+    .loading span{
+        width: 4px;
+        height: 4px;
+    }
+
+    .deck{
+        width: 100%;   
+    }
+    .deck span{
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid var(--light-white);
+        cursor: pointer;
+    }
+    .deck span:hover{
+        background: none;
+    }
+    .social_media img{
+        width: 2rem;
+        margin: 10px 0px 0px 30px;
+    }
+}
+@media (max-width:280px) {
+    h1{font-size: 1.5rem;}
+}
