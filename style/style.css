@@ -16,10 +16,10 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 3rem;
+    /* row-gap: 3rem; */
 }
 h1{
-    margin-bottom: 3rem;
+    margin-block: 5rem;
 }
 .screen{
     position: relative;
@@ -32,6 +32,7 @@ h1{
     justify-content: center;
     align-items: center;
     border-radius: 15px;
+    margin-block: 2rem;
 }
 .screen div{
     width: 3.5rem;
@@ -64,7 +65,7 @@ h1{
     letter-spacing: 2px;
     display: flex;
     flex-direction: column-reverse;
-
+    margin-block: 1rem;
 }
 #comment ul{
     display: flex;
@@ -115,6 +116,7 @@ h1{
     width: 22rem;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 1.5rem;
 }
 .deck span{
     width: 4rem;
