@@ -16,7 +16,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 3.5rem;
+    row-gap: 3rem;
+    overflow: hidden;
 }
 h1{
     margin-bottom: 4rem;
