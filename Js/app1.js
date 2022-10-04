@@ -96,7 +96,6 @@
     // theme
     document.documentElement.style.setProperty('--deeplightblue', themeMap[nameMap[currentLevel]][1]);
     document.documentElement.style.setProperty('--deepblue', themeMap[nameMap[currentLevel]][0]);
-    console.log("current level= ",nameMap[currentLevel]);
     reset();
     levelupAlert(currentLevel,nameMap[currentLevel],"Best of Luck!")
 }
@@ -215,7 +214,6 @@ const reset=()=>{
                if(currentLevel===1){
                     // comp's choice
                     comp_choice = deck[Math.floor(Math.random() * deck.length)];
-                    console.log("comp choice LVL 1",comp_choice)
                 }
 
                 /*
