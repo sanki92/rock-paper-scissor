@@ -4,17 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:site_name" content="Rock Paper Scissor">
+    <meta property="og:title" content="Rock Paper Scissor" />
+    <meta property="og:description" content="A stupid game created by a geek" />
+    <meta property="og:type" content="website" />
     <link rel="stylesheet" href="./style/style.css">
     <link rel="shortcut icon" href="https://img.icons8.com/emoji/48/000000/rock-emoji.png" type="image/x-icon">
-    <title>Rock Paper Scissor</title>
+    <!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=633bb251c2af2800193d4bbe&product=sticky-share-buttons" async="async"></script>    <title>Rock Paper Scissor</title> -->
 </head>
 <body>
+    <img title="Open hint" onclick="hintdown()" class="hint_icon" src="https://img.icons8.com/sf-black-filled/64/a2afbb/info.png"/>
+    <div class="hint">
+        <!-- <div class="sharethis-sticky-share-buttons"></div> -->
+        <img title="Close hint" onclick="hintup()" class="hint_icon" src="https://img.icons8.com/ios-glyphs/30/a2afbb/macos-close.png"/>
+        <ul> 
+                <li>Rules</li>
+                <li>To win Lvl 1, score at least 1</li>
+                <li>To win Lvl 2, score at least 3</li>
+                <li>To win Lvl 3, score at least 5</li>
+        </ul>
+        <div class="creator_space">
+            <p >- I created this game in the hopes that you will enjoy it, also I challenge you to show up to level 5 and share it with others.</p>
+            <p >If you find any kind of bug, feel free to  <a style="color: var(--light-white);" href="mailto: sankalpt92@gmail.com">Contact</a></p>
+
+        </div>
+      </div>
+    <!-- ....Alert... -->
+    <div class="alertScreen">
+        <ul>
+            <li id="alertLevel" >Level 1 ( Beginner )</li>
+            <li id="alertComment" >Best of Luck!</li>
+        </ul>
+    </div>
     <div class="social_media">
         <a target="_blank" href="https://www.instagram.com/codingsmurfs/">
-            <img src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/24/000000/external-instagram-photo-and-video-sharing-social-networking-service-owned-by-facebook-logo-filled-tal-revivo.png"/>
+            <img src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/64/000000/external-instagram-photo-and-video-sharing-social-networking-service-owned-by-facebook-logo-filled-tal-revivo.png"/>
         </a>
     </div>
     <h1>Rock, Paper & Scissor</h1>
+    <div class="level">
+        <ul>
+            <li><span id="level">1</span>Level</li>
+            <li><label id="levelname">Beginner</label></li>
+            <li><span id="turns">3</span>Turns</li>
+        </ul>
+    </div>
     <div class="screen">
 
         <div id="user">00</div><span>:</span>
@@ -53,115 +87,14 @@
 </body>
 
 
+<script src="./Js/app1.js"></script>
 <script>
-    // deck (rock, paper, scissor)
-    const deck = document.querySelectorAll('.deck span');
-
-    // comment
-    let user_comment = document.getElementById("user_comment");
-    let comp_comment = document.getElementById("comp_comment");
-    let status_comment = document.getElementById("status");
-
-    // screen
-    const user = document.getElementById("user");
-    const comp = document.getElementById("comp");
-
-    // choice
-    let comp_choice;
-    let user_choice;
-
-    // default score
-    let comp_score=0,user_score=0;
-    let status;
-
-    // score updation
-    const update=()=>{
-        user_score>=0&&user_score<10 ? user.innerText="0"+user_score : user.innerText=user_score;
-        comp_score>=0&&comp_score<10 ? comp.innerText="0"+comp_score : comp.innerText=comp_score;
-        
+    let hint = document.querySelector(".hint");
+    const hintdown=()=>{
+        hint.classList.add("show");
     }
-    const commentupdate=(ch_user,ch_comp,status)=>{
-        user_comment.innerText=ch_user;
-        comp_comment.innerText=ch_comp;
-        status_comment.innerText=status;
+    const hintup=()=>{
+        hint.classList.remove("show");
     }
-
-
-    deck.forEach(item=>{
-        item.addEventListener('click',function(){
-            // user's choice
-            user_choice = item;
-            user_comment.innerText=user_choice.id;
-            comp_comment.innerText="--";
-            status_comment.innerText="Making move..."
-
-            // loading start 
-            document.querySelector(".loading").style.visibility="visible"
-            setTimeout(() => {
-            // loading over after 3s
-            document.querySelector(".loading").style.visibility="hidden"
-
-            // comp's choice
-                comp_choice = deck[Math.floor(Math.random() * deck.length)];
-                // console.log("computer",comp_choice.id)
-                // console.log("user",user_choice.id)
-
-
-                if(user_choice.id === comp_choice.id){
-                    status="Draw!";
-                    commentupdate(user_choice.id,comp_choice.id,status);
-                }
-
-                // CONDITION 1
-                if(user_choice.id==="Rock"&&comp_choice.id==="Paper"){
-                    // user lose
-                    status="You Lose!";
-                    commentupdate(user_choice.id,comp_choice.id,status);
-                    comp_score++;
-                }
-                else if(user_choice.id==="Paper"&&comp_choice.id==="Rock"){
-                    //user win
-                    status="You Win!";
-                    commentupdate(user_choice.id,comp_choice.id,status);
-                    user_score++;
-                }
-                // CONDITION 2
-                else if(user_choice.id==="Paper"&&comp_choice.id==="Scissor"){
-                    //user lose
-                    status="You Lose!";
-                    commentupdate(user_choice.id,comp_choice.id,status);
-                    comp_score++;
-                }
-                else if(user_choice.id==="Scissor"&&comp_choice.id==="Paper"){
-                    //user win
-                    status="You Win!";
-                    commentupdate(user_choice.id,comp_choice.id,status);
-                    user_score++;
-                }
-                // CONDITION 3
-                else if(user_choice.id==="Scissor"&&comp_choice.id==="Rock"){
-                    //user lose
-                    status="You Lose!";
-                    commentupdate(user_choice.id,comp_choice.id,status);
-                    comp_score++;
-                }
-                else if(user_choice.id==="Rock"&&comp_choice.id==="Scissor"){
-                    //user win
-                    status="You Win!";
-                    commentupdate(user_choice.id,comp_choice.id,status);
-                    user_score++;
-                }
-            
-
-
-
-                update();
-            }, 3000);
-
-
-
-        })
-    })
- 
 </script>
 </html>
