@@ -13,16 +13,59 @@
     <!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=633bb251c2af2800193d4bbe&product=sticky-share-buttons" async="async"></script>    <title>Rock Paper Scissor</title> -->
 </head>
 <body>
-    <img title="Open hint" onclick="hintdown()" class="hint_icon" src="https://img.icons8.com/sf-black-filled/64/a2afbb/info.png"/>
+    <img id="animate-hint" title="Open hint" onclick="hintdown()" class="hint_icon" src="https://img.icons8.com/sf-black-filled/64/a2afbb/info.png"/>
     <div class="hint">
         <!-- <div class="sharethis-sticky-share-buttons"></div> -->
         <img title="Close hint" onclick="hintup()" class="hint_icon" src="https://img.icons8.com/ios-glyphs/30/a2afbb/macos-close.png"/>
-        <ul> 
+        <!-- <ul> 
                 <li>Rules</li>
                 <li>To win Lvl 1, score at least 1</li>
                 <li>To win Lvl 2, score at least 3</li>
                 <li>To win Lvl 3, score at least 5</li>
-        </ul>
+        </ul> -->
+        
+        <table>
+            <tr>
+                <th>Level</th>
+                <th>Level Name</th>
+                <th>Min.Score</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Novice</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Learner</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Intermediate</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Champion</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Expert</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Master</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Legendary</td>
+                <td>20</td>
+            </tr>
+        </table>
         <div class="creator_space">
             <p >- I created this game in the hopes that you will enjoy it, also I challenge you to show up to level 5 and share it with others.</p>
             <p >If you find any kind of bug, feel free to  <a style="color: var(--light-white);" href="mailto: sankalpt92@gmail.com">Contact</a></p>
@@ -32,7 +75,7 @@
     <!-- ....Alert... -->
     <div class="alertScreen">
         <ul>
-            <li id="alertLevel" >Level 1 ( Beginner )</li>
+            <li id="alertLevel" >Level 1 ( Novice )</li>
             <li id="alertComment" >Best of Luck!</li>
         </ul>
     </div>
@@ -45,7 +88,7 @@
     <div class="level">
         <ul>
             <li><span id="level">1</span>Level</li>
-            <li><label id="levelname">Beginner</label></li>
+            <li><label id="levelname">Novice</label></li>
             <li><span id="turns">3</span>Turns</li>
         </ul>
     </div>
@@ -92,6 +135,7 @@
     let hint = document.querySelector(".hint");
     const hintdown=()=>{
         hint.classList.add("show");
+        document.querySelector('.hint_icon').removeAttribute('id')
     }
     const hintup=()=>{
         hint.classList.remove("show");

@@ -30,19 +30,18 @@
    let alertLevel = document.getElementById("alertLevel");
    let alertComment = document.getElementById("alertComment");
 
-   let  nameMap ={
-    1 : "Beginner",
-    2 : "Trainee",
-    3 : "Expert",
-    }
 
-    let themeMap={
-    "Beginner":["linear-gradient(to right, #3a7bd5, #085379)","#085379"],
-    "Trainee":["linear-gradient(to right, #7474bf, #348ac7)","#7474bf"],
-    "Expert":["linear-gradient(to right, #8e0e00, #1f1c18)","#2a2424"], 
-    }
+   let nameThemeMap={
+    1: ["Novice",["url('../img/lvl1.jpg') no-repeat center","#27323e"]],
+    2: ["Learner",["url('../img/lvl2.jpeg') no-repeat center","#363d44"]],
+    3: ["Intermediate",["url('../img/lvl3.png') no-repeat center","#001b2e"]],
+    4: ["Champion",["url('../img/lvl4.png') no-repeat center","#244168"]],
+    5: ["Expert",["url('../img/lvl5.jpg') no-repeat center","#2e3670"]],
+    6: ["Master",["url('../img/lvl6.jpg') no-repeat center","#000"]],  //<-------
+    7: ["Legendary",["url('../img/lvl7.jpg') no-repeat center","#000"]],   //<-------
+   }
 
-   const levelupAlert=(alert_currentLevel=1,alert_levelName="Beginner",alert_comment="Best of Luck!")=>{
+   const levelupAlert=(alert_currentLevel=1,alert_levelName="Novice",alert_comment="Best of Luck!")=>{
     alertScreen.classList.add("show")
         alertLevel.innerHTML = `Level ${alert_currentLevel}  ( ${alert_levelName} )`
         alertComment.innerText =alert_comment
@@ -91,13 +90,13 @@
         currentLevel++;
         // turns reset
         currentTurns=3;
-    //level name   
-    levelName.innerText=nameMap[currentLevel];
-    // theme
-    document.documentElement.style.setProperty('--deeplightblue', themeMap[nameMap[currentLevel]][1]);
-    document.documentElement.style.setProperty('--deepblue', themeMap[nameMap[currentLevel]][0]);
+        //level name   
+        levelName.innerText=nameThemeMap[currentLevel][0]
+        // theme
+        document.documentElement.style.setProperty('--deeplightblue', nameThemeMap[currentLevel][1][1]);
+        document.documentElement.style.setProperty('--deepblue', nameThemeMap[currentLevel][1][0]);
     reset();
-    levelupAlert(currentLevel,nameMap[currentLevel],"Best of Luck!")
+    levelupAlert(currentLevel,nameThemeMap[currentLevel][0],"Best of Luck!")
 }
 
 const reset=()=>{
@@ -109,9 +108,13 @@ const reset=()=>{
    const retry=()=>{
     currentLevel=1;
     currentTurns=3;
-    levelName.innerText=nameMap[currentLevel];
-    document.documentElement.style.setProperty('--deeplightblue', themeMap[nameMap[currentLevel]][1]);
-    document.documentElement.style.setProperty('--deepblue', themeMap[nameMap[currentLevel]][0]);
+
+     //level name   
+     levelName.innerText=nameThemeMap[currentLevel][0]
+     // theme
+     document.documentElement.style.setProperty('--deeplightblue', nameThemeMap[currentLevel][1][1]);
+     document.documentElement.style.setProperty('--deepblue', nameThemeMap[currentLevel][1][0]);
+
     comp_score=0;
     user_score=0;
     // resetting commenting
@@ -134,6 +137,7 @@ const reset=()=>{
     "Paper":document.getElementById("Scissor"),
     "Scissor":document.getElementById("Rock"),
    }
+
    const cheat=()=>{
     comp_choice = cheatMap[user_choice.id]
    }
@@ -219,12 +223,12 @@ const reset=()=>{
                 /*
                 
                     ****  LEVEL 2!! REMOVED DRAW!!  ****
-                
+                  
                 */
 
                 else if(currentLevel>=2){
                        noDraw();
-                       user_score>3 ? cheat() : false
+                    //    user_score>3 ? cheat() : false
                 }
                 
                 judge();
@@ -242,23 +246,33 @@ const reset=()=>{
                         levelUp();
                     }else if(currentLevel===3 && user_score>=5){
                         levelUp();
-                    }else{
+                    }else if(currentLevel===4 && user_score>=7){
+                        levelUp();
+                    }else if(currentLevel===5 && user_score>=10){
+                        levelUp();
+                    }else if(currentLevel===6 && user_score>=15){
+                        levelUp();
+                    }else if(currentLevel===7 && user_score>=20){
+                        levelUp();
+                    }
+                    
+                    else{
                         retry();
                         scoreUpdate();
                         level_turnsUpdate();
-                        console.log("turns="+currentTurns+"\nlevel="+currentLevel+"\nscore="+user_score)
+                        // console.log("turns="+currentTurns+"\nlevel="+currentLevel+"\nscore="+user_score)
                         retryAlert("You Lose! Try again")
                     }
                 }else if(currentTurns === 0 && user_score<1){
                     retry();
                     scoreUpdate();
                     level_turnsUpdate();
-                    console.log("turns="+currentTurns+"\nlevel="+currentLevel+"\nscore="+user_score)
+                    // console.log("turns="+currentTurns+"\nlevel="+currentLevel+"\nscore="+user_score)
                     retryAlert("You Lose! Try again")
                 }
 
                 level_turnsUpdate();
-            }, 3000);
+            }, 1000);
 
         }  //turns checking
 

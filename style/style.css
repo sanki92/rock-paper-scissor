@@ -7,8 +7,8 @@
 }
 :root{
     --light-white:#dff0ffb7;
-    --deepblue: linear-gradient(to right, #3a7bd5, #085379);
-    --deeplightblue:#085379;
+    --deepblue: url('../img/lvl1.jpg') no-repeat center; 
+     --deeplightblue:#27323e;
     --dark:#191d24;
     /* lvl1 */ 
     /*
@@ -44,6 +44,8 @@ body{
     width: 22rem;
     height: 5rem;
     background: var(--deepblue);
+    /* background: url('../img/lvl7.jpg') no-repeat center; */
+    background-size:cover;
     outline: 2px dashed var(--light-white);
     outline-offset: -8px;
     display: flex;
@@ -243,7 +245,7 @@ center
     font-size: 1rem;
 }
 .creator_space{
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 70%;
 }
 .creator_space p{
@@ -271,24 +273,22 @@ center
     transition: .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform: translateY(-20rem);
 }
-.hint ul{
-    height: 10rem;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-size: 1.2rem;
+tr:nth-child(even) {background-color:var(--deeplightblue);}
+
+.hint table{
+    width: 50%;
+    text-align: center;
 }
-.hint ul li:first-child{
- font-size: 1.4rem;
- font-weight: bold;
- text-align: center;
+.hint table tr td{padding: 5px;border-radius: 4px;}
+.hint table th{padding: 5px; }
+#animate-hint{
+    animation: glow 600ms alternate infinite;
+    border-radius: 50%;
 }
-
-
-
-
-
+@keyframes glow {
+    from{transform: scale(1.1);}
+    to{box-shadow: 0 0 15px rgb(140, 219, 255);}
+}
 
 
 
@@ -410,19 +410,12 @@ center
         left: .5rem;
     }
 
-    .hint ul{
-        height: 10rem;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+    .hint table{
         font-size: .9rem;
+
     }
-    .hint ul li:first-child{
-     font-size: 1rem;
-     font-weight: bold;
-     text-align: center;
-    }
+ 
+ 
     .creator_space{
         font-size: .9rem;
         width: 70%;
