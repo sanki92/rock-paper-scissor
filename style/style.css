@@ -225,6 +225,7 @@ footer{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    cursor: pointer;
     padding: 2px;
 }
 .fullscreen-icon .sec1,
@@ -509,6 +510,13 @@ tr:nth-child(even) {background-color:var(--deeplightblue);}
 
     }
     
+    .fullscreen-icon{
+
+        top: 3.5rem;
+        left: .6rem;
+
+    }
+
     .alertScreen.bgceleb{
         background-image: url(../img/celeb.gif) !important;
         background: #000000cb center fixed ;
