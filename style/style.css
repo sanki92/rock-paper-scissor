@@ -251,6 +251,9 @@ footer{
     width: 1.5rem;
     height: 1.5rem;
     display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; /* Safari */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -265,6 +268,9 @@ footer{
     width: 10px;
     height: 10px;
     background: transparent;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; /* Safari */
     display: flex;
     transition: .7s ease;
 }
