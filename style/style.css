@@ -205,6 +205,11 @@ footer{
     transition: .8s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform: translateY(-20rem);
 }
+.alertScreen.bgceleb{
+    background-image: url(../img/celeb.gif) !important;
+    background: #000000cb center fixed ;
+    background-size: 20% !important;
+}
 .show{
     opacity: 1 !important;
     z-index: 999 !important;
@@ -217,6 +222,11 @@ center
     transform: translate(-50%,-50%);
 
 */
+.celeb{
+    width: auto;
+    height: 100%;
+    position: absolute;
+}
 .alertScreen ul{
     list-style: none;
     display: flex;
@@ -398,7 +408,12 @@ tr:nth-child(even) {background-color:var(--deeplightblue);}
         font-size: .9rem;
 
     }
- 
+    
+    .alertScreen.bgceleb{
+        background-image: url(../img/celeb.gif) !important;
+        background: #000000cb center fixed ;
+        background-size: 50% !important;
+    }
  
     .creator_space{
         font-size: .9rem;

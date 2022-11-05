@@ -43,10 +43,12 @@
 
    const levelupAlert=(alert_currentLevel=1,alert_levelName="Novice",alert_comment="Best of Luck!")=>{
     alertScreen.classList.add("show")
+    alertScreen.classList.add("bgceleb")
         alertLevel.innerHTML = `Level ${alert_currentLevel}  ( ${alert_levelName} )`
         alertComment.innerText =alert_comment
     setTimeout(() => {
         alertScreen.classList.remove("show")
+        alertScreen.classList.remove("bgceleb")
     }, 2700);
     } 
     levelupAlert()
