@@ -28,7 +28,6 @@ body{
     width: 20rem;
     height: 5rem;
     background: var(--deepblue);
-    /* background: url('../img/lvl7.jpg') no-repeat center; */
     background-size:cover;
     outline: 2px dashed var(--light-white);
     outline-offset: -8px;
@@ -68,7 +67,6 @@ body{
     letter-spacing: 2px;
     display: flex;
     flex-direction: column-reverse;
-    
 }
 #comment ul{
     display: flex;
@@ -597,5 +595,94 @@ tr:nth-child(even) {background-color:var(--deeplightblue);}
     ha1{font-size: 1.5rem;}
     .fucker-section.fucked p{
         font-size: 12px;
+    }
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+    body{
+        background:  #fff !important;
+    }
+    h2{
+        color: red !important;
+    }
+}
+@media only screen
+and (min-device-width : 480px)
+and (max-device-width : 900px)
+and (orientation : landscape) {
+    footer{display: none;}
+    body{
+        flex-direction: column;
+        justify-content: space-evenly;
+        -webkit-justify-content: space-evenly ;
+    }
+    .level ul li{
+        font-size: 0.8rem;
+        padding: 3px;
+        border-radius: 5px;
+        width: 3rem;
+    }
+    .level ul li span{
+        font-size: 1rem;
+    }
+    .level ul li:nth-child(2){
+        background: none;
+        font-size: 1rem;
+        font-weight: normal;
+        /* background: #000; */
+    }
+    .loading{
+        margin-block: 20px;
+    }
+
+    #comment ul li span{
+        font-size: 1rem;
+        font-weight: normal;
+    }
+    #comment #status{
+        font-size: 1.1rem;
+        margin: 1rem;
+    }
+    .deck{
+        margin-top: auto;
+        margin-bottom: auto;
+        position: absolute;
+        flex-direction: column;
+        width: auto;
+        height: 70%;
+        right: 10%;
+    }
+    .deck span{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .screen{
+        width: 15rem;
+        height: 6rem;
+        border-radius: 5px;
+    }
+    .screen div{
+        font-size: 1.2rem;
+    }
+    .screen span{
+        font-size: 1rem;
+    }
+    .screen div::after{
+        font-size: .8rem;
+        height: .7rem;
+        padding: 6px 2px ;
+        border-radius: 3px;
+    }
+    .creator_space{
+        font-size: .9rem;
+        width: 80%;
+    }
+    .creator_space p{
+        margin-block:10px ;
     }
 }
