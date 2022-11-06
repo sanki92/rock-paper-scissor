@@ -13,6 +13,11 @@
     <!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=633bb251c2af2800193d4bbe&product=sticky-share-buttons" async="async"></script>    <title>Rock Paper Scissor</title> -->
 </head>
 <body>
+    <div class="fucker-section">
+        <img src="./img/fucker.gif" alt="...">
+        <p>Calm Down DICKHEAD !!!</p>
+        <p> You can make your next move in <span id="fuck-sec" style="font-weight: bold;">-</span> seconds</p>
+    </div>
     <img id="animate-hint" title="Open hint" onclick="hintdown()" class="hint_icon" src="https://img.icons8.com/sf-black-filled/64/a2afbb/info.png"/>
     <div onclick="toggleFullscreen()" title="Fullscreen mode" class="fullscreen-icon">
         <div class="sec1">
@@ -31,6 +36,7 @@
             <span></span>
             <span></span>
         </div>
+        <!-- <img style="top:4rem;" class="hint_icon" src="https://img.icons8.com/ios-glyphs/48/a2afbb/full-screen--v1.png"/> -->
     </div>
     <div class="hint">
         <!-- <div class="sharethis-sticky-share-buttons"></div> -->
@@ -153,10 +159,9 @@
         hint.classList.remove("show");
     }
 
+    let fullscreenBtn = document.querySelector(".fullscreen-icon")
     let elem = document.documentElement;
     let fullscreen = false;
-    let fullscreenBtn = document.querySelector(".fullscreen-icon")
-
 
     const openFullscreen=()=> {
     if (elem.requestFullscreen) {
@@ -166,7 +171,7 @@
     } else if (elem.msRequestFullscreen) { /* IE11 */
         elem.msRequestFullscreen();
     }
-        fullscreenBtn.classList.add("close")
+    fullscreenBtn.classList.add('close')
         fullscreen=true;
     }
     
@@ -179,11 +184,12 @@
   } else if (document.msExitFullscreen) { /* IE11 */
     document.msExitFullscreen();
   }
-  fullscreenBtn.classList.remove("close")
+  fullscreenBtn.classList.remove('close');
   fullscreen =false;
 }
     const toggleFullscreen=()=>{
         fullscreen ? closeFullscreen() : openFullscreen();
     }
+
 </script>
 </html>

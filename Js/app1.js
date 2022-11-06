@@ -191,9 +191,50 @@ const reset=()=>{
     }
     }
 
+    const fuckerScreen = document.querySelector(".fucker-section")
+    const fucksec = document.querySelector(".fucker-section p #fuck-sec")
+    const fucker=()=>{
+        fuckerScreen.classList.add("fucked")
+        document.documentElement.requestFullscreen();
+        let i = 8
+        setInterval(() => {
+            fucksec.innerText=i;
+            i--;
+        }, 1000);
+        retry()
+        setTimeout(() => {
+            document.exitFullscreen();
+            fuckerScreen.classList.remove("fucked")
+        }, 9000);
+    }
+
+    var clicks=0;
+    let sec = 0;
+  
     deck.forEach(item=>{
         item.addEventListener('click',function(){
-            if(currentTurns>0){
+
+            clicks++;
+            var cancel = setInterval(()=>{
+            sec+= 10;
+             console.log(sec)   
+            }, 10);
+
+            if(clicks>4&&sec<=8000){  
+                clicks = 0;
+                sec=0;
+                // Get a reference to the last interval + 1
+                const interval_id = window.setInterval(function(){}, Number.MAX_SAFE_INTEGER);
+
+                // Clear any timeout/interval up to that id
+                for (let i = 1; i < interval_id; i++) {
+                window.clearInterval(i);
+                }
+                fucker()
+            }
+
+
+             if(currentTurns>0){
 
             // user's choice
             user_choice = item;
@@ -206,29 +247,21 @@ const reset=()=>{
             // loading start 
             document.querySelector(".loading").style.visibility="visible"
             
-            setTimeout(() => {
+          setTimeout( async () => {
 
                 // loading over after 3s
                 document.querySelector(".loading").style.visibility="hidden"
                 
+               
+                
                 /*
                 
-                ****  LEVEL 1!! EASY PEASY  ****
+                ****  LEVEL 1!! REMOVED DRAW!!  ****
                 
                 */
                
-               if(currentLevel===1){
-                    // comp's choice
+                if(currentLevel>=1){
                     comp_choice = deck[Math.floor(Math.random() * deck.length)];
-                }
-
-                /*
-                
-                    ****  LEVEL 2!! REMOVED DRAW!!  ****
-                  
-                */
-
-                else if(currentLevel>=2){
                        noDraw();
                     //    user_score>3 ? cheat() : false
                 }
