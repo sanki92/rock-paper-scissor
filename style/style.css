@@ -658,8 +658,8 @@ and (orientation : landscape) {
         right: 10%;
     }
     .deck span{
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 3rem;
+        height: 3rem;
     }
     .screen{
         width: 15rem;
