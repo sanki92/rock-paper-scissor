@@ -9,38 +9,61 @@
     <meta property="og:description" content="A stupid game created by a geek" />
     <meta property="og:type" content="website" />
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/styleDusri.css">
     <link rel="shortcut icon" href="https://img.icons8.com/emoji/48/000000/rock-emoji.png" type="image/x-icon">
     <!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=633bb251c2af2800193d4bbe&product=sticky-share-buttons" async="async"></script>    <title>Rock Paper Scissor</title> -->
 </head>
 <body>
+    <!-- FUCKER SCREEN -->
     <div class="fucker-section">
         <img src="./img/fucker.gif" alt="...">
         <p>Calm Down DICKHEAD !!!</p>
         <p> You can make your next move in <span id="fuck-sec" style="font-weight: bold;">-</span> seconds</p>
     </div>
-    <img id="animate-hint" title="Open hint" onclick="hintdown()" class="hint_icon" src="https://img.icons8.com/sf-black-filled/64/a2afbb/info.png"/>
-    <div onclick="toggleFullscreen()" title="Fullscreen mode" class="fullscreen-icon">
-        <div class="sec1">
+
+    <!--MENU BUTTONS  -->
+    
+    <div class="up-downMenubtn">
+        <div class="updown">
             <span></span>
             <span></span>
         </div>
-        <div class="sec2">
-            <span></span>
-            <span></span>
+        <img style="--i:3" id="capture-ss" onclick="capture()" src="https://img.icons8.com/ios-glyphs/64/aab8c5/unsplash.png"/>      
+        <div style="--i:2" onclick="toggleFullscreen()" title="Fullscreen mode" class="fullscreen-icon">
+                    <div class="sec1">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="sec2">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="sec3">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="sec4">
+                        <span></span>
+                        <span></span>
+                    </div>
+           </div>
+           <img style="--i:1" id="animate-hint" title="Open hint" onclick="hintdown()" class="hint_icon"  src="https://img.icons8.com/ios-glyphs/64/aab8c5/info-squared.png"/>
         </div>
-        <div class="sec3">
-            <span></span>
-            <span></span>
-        </div>
-        <div class="sec4">
-            <span></span>
-            <span></span>
-        </div>
-        <!-- <img style="top:4rem;" class="hint_icon" src="https://img.icons8.com/ios-glyphs/48/a2afbb/full-screen--v1.png"/> -->
+        <!-- <img src="https://img.icons8.com/sf-black-filled/64/aab8c5/info.png"/> -->
+    
+
+    <div class="social_media">
+        <a target="_blank" href="https://www.instagram.com/codingsmurfs/">
+            <img src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/64/000000/external-instagram-photo-and-video-sharing-social-networking-service-owned-by-facebook-logo-filled-tal-revivo.png"/>
+        </a>
     </div>
+
+
+
+    <!-- SCREENS -->
     <div class="hint">
         <!-- <div class="sharethis-sticky-share-buttons"></div> -->
-        <img title="Close hint" onclick="hintup()" class="hint_icon" src="https://img.icons8.com/ios-glyphs/30/a2afbb/macos-close.png"/>
+        <img title="Close hint" onclick="hintup()" class="hint_icon_" src="https://img.icons8.com/ios-glyphs/30/aab8c5/macos-close.png"/>
         <table>
             <tr>
                 <th>Level</th>
@@ -97,11 +120,9 @@
             <li id="alertComment" >Best of Luck!</li>
         </ul>
     </div>
-    <div class="social_media">
-        <a target="_blank" href="https://www.instagram.com/codingsmurfs/">
-            <img src="https://img.icons8.com/external-tal-revivo-filled-tal-revivo/64/000000/external-instagram-photo-and-video-sharing-social-networking-service-owned-by-facebook-logo-filled-tal-revivo.png"/>
-        </a>
-    </div>
+
+
+    <!--MAIN GAME -->
     <h2 style="margin-block-end: 1.5rem;">Rock, Paper & Scissor</h2>
     <div class="level">
         <ul>
@@ -144,12 +165,35 @@
         <span id="Scissor"><img src="./img/scissor.png" alt="..." draggable="false"></span>
     </div>
 
+    
     <footer>Designed & developed by Sankalp</footer>
 </body>
 
 
 <script src="./Js/app1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+
+    document.querySelector(".up-downMenubtn").addEventListener("click",function(){
+        this.classList.toggle("open");
+    })
+
+
+
+    function capture () {
+        setTimeout(() => {
+            html2canvas(document.body).then((canvas) => {
+                let a = document.createElement("a");
+                a.download = "RockPaperScissor.png";
+                a.href = canvas.toDataURL("image/png");
+                a.click(); // MAY NOT ALWAYS WORK!
+            });
+        }, 1100);
+    }
+
+
+
+
     let hint = document.querySelector(".hint");
     const hintdown=()=>{
         hint.classList.add("show");
@@ -190,6 +234,5 @@
     const toggleFullscreen=()=>{
         fullscreen ? closeFullscreen() : openFullscreen();
     }
-
 </script>
 </html>

@@ -14,7 +14,7 @@
     --dark:#191d24;
 }
 body{
-    background: rgb(37, 43, 50);
+    background: #252b32;
     color: var(--light-white);
     height: 100vh;
     display: flex;
@@ -141,18 +141,12 @@ footer{
     text-align: center;
     letter-spacing: 1px;
 }
-.social_media{
-    width: 50px;
-    height: 50px;
-    background: var(--dark);
-    clip-path: circle(90% at 100% 0%);
-    position: fixed;
-    top: 0;
-    right: 0;
-}
+
 .social_media img{
     width: 1.8rem;
-    margin: 5px 0px 0px 20px;
+    position: fixed;
+    top: .4rem;
+    right: .4rem;
     cursor: pointer;
 }
 
@@ -238,39 +232,10 @@ footer{
 .fucker-section img{
     width: 20rem;
 }
-/* .fullscreen-icon::after{
-    content: "Fullscreen";
-    font-size: 14px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #191d24;
-    position: absolute;
-    width: 4rem;
-    height: 1.5rem;
-    left: 3rem;
-    border-radius: 5px;
-    background: var(--light-white);
-    animation: move 1s ease infinite alternate;
-}
-.fullscreen-icon::before{
-    content: "";
-    position: absolute;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent; 
-    border-right:12px solid var(--light-white); 
-    left: 2rem;
-    border-radius: 4px;
-    animation: move 1s ease infinite alternate;
-}
-@keyframes move {
-    from{transform:translateX(-8px);}
-} */
+
 .fullscreen-icon{
-    position: absolute;
-    top: 4rem;
-    left: 1rem;
+    /* position: absolute; */
+    z-index: 99;
     width: 1.5rem;
     height: 1.5rem;
     display: flex;
@@ -282,6 +247,7 @@ footer{
     flex-wrap: wrap;
     cursor: pointer;
     padding: 2px;
+    transform: scale(0);
 }
 .fullscreen-icon .sec1,
 .fullscreen-icon .sec2,
@@ -400,13 +366,18 @@ footer{
 .creator_space p{
     margin-block:20px ;
 }
-.hint_icon{
+.hint_icon_{
     position:fixed;
-    width: 2rem;
-    height: 2rem;
-    top: .8rem;
-    left: .8rem;
+    top: .5rem;
+    left: .5rem;
+    width:1.9rem;
+    height: 1.9rem;
+}
+.hint_icon{
+    width: 1.6rem;
+    height: 1.6rem;
     cursor: pointer;
+    transform: scale(0);
 }
 .hint{
     position: fixed;
@@ -430,14 +401,8 @@ tr:nth-child(even) {background-color:var(--deeplightblue);}
 }
 .hint table tr td{padding: 5px;border-radius: 4px;}
 .hint table th{padding: 5px; }
-#animate-hint{
-    animation: glow 600ms alternate infinite;
-    border-radius: 50%;
-}
-@keyframes glow {
-    from{transform: scale(1.1);}
-    to{box-shadow: 0 0 15px rgb(140, 219, 255);}
-}
+
+
 
 
 

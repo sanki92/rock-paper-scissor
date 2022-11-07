@@ -74,7 +74,6 @@
         level.innerText = currentLevel;
         turns.innerText = currentTurns;
     }
-    
     // before updation
     const beforeUpdate=()=>{
         user_comment.innerText=user_choice.id;
