@@ -24,10 +24,7 @@
     <!--MENU BUTTONS  -->
     
     <div class="up-downMenubtn">
-        <div class="updown">
-            <span></span>
-            <span></span>
-        </div>
+        <img class="updown" src="https://img.icons8.com/ios-glyphs/90/000000/expand-arrow--v1.png"/>
         <img style="--i:3" id="capture-ss" onclick="capture()" src="https://img.icons8.com/ios-glyphs/64/aab8c5/unsplash.png"/>      
         <div style="--i:2" onclick="toggleFullscreen()" title="Fullscreen mode" class="fullscreen-icon">
                     <div class="sec1">
@@ -176,6 +173,8 @@
 
     document.querySelector(".up-downMenubtn").addEventListener("click",function(){
         this.classList.toggle("open");
+        this.classList.contains("open")?document.querySelector(".updown").setAttribute('src',"https://img.icons8.com/ios-glyphs/90/aab8c5/collapse-arrow.png"):document.querySelector(".updown").setAttribute('src',"https://img.icons8.com/ios-glyphs/90/000000/expand-arrow.png")
+        
     })
 
 

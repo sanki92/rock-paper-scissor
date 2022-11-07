@@ -17,24 +17,25 @@
     -webkit-align-items:center;
     -webkit-justify-content:space-evenly;
 
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     cursor: pointer;
-    padding: 2px;
     border-radius: 100px;
-    /* overflow: hidden; */
+    overflow: hidden;
 
     transition: .4s cubic-bezier(0.175, 0.585, 0.2, 1.345);
 }
 .up-downMenubtn  .updown{
+    position: absolute;
     margin-top: auto;
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline: auto;
     border-radius: 100px;
     display: inherit;
     justify-content: center;
     align-items: center;
 }
-.up-downMenubtn .updown span{
+/* .up-downMenubtn .updown span{
     position: absolute;
     background: #000000;
     width: 2px;
@@ -45,7 +46,7 @@
 }
 .up-downMenubtn .updown span:last-child{
     transform: rotate(45deg)translate(4px,-3px);
-}
+} */
 .up-downMenubtn #capture-ss{
     /* position: absolute; */
     width: 1.5rem;
@@ -60,13 +61,13 @@
 
 /* OPEN */
  .up-downMenubtn.open{
-    height: 10rem;
-    background: #0000003e;
-}
-.up-downMenubtn.open .updown span{
-    height: 18px;
-    background: #aab8c5;
-    transform: rotate(225deg)translate(0);
+     height: 10rem;
+     background: #0000003e;
+    }
+    .up-downMenubtn.open .updown{
+    position: relative;
+    /* background: #aab8c5; */
+    /* transform: rotate(225deg)translate(0); */
 }
 .up-downMenubtn.open .updown span:last-child{
     transform: rotate(-225deg)translate(0);

@@ -481,18 +481,12 @@ tr:nth-child(even) {background-color:var(--deeplightblue);}
     .deck span:hover{
         background: none;
     }
-    .social_media{
-        width: 50px;
-        height: 50px;
-        background: var(--dark);
-        clip-path: circle(90% at 100% 0%);
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
+  
     .social_media img{
+        position: fixed;
         width: 1.6rem;
-        margin: 5px 0px 0px 18px;
+        right: .5rem;
+        top: .5rem;
     }
 
 
